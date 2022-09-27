@@ -8,7 +8,7 @@ import { listUsers, deleteUsers } from '../actions/userActions';
 
 const UserListScreen = ({ history }) => {
 	const dispatch = useDispatch();
-	const userList = useSelector((state) => state.userList);
+	const userList = useSelector((state) => state.userList); 
 	const { loading, users, error } = userList;
 
 	const userLogin = useSelector((state) => state.userLogin);

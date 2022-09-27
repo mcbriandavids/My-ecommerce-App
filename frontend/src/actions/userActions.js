@@ -25,6 +25,7 @@ import {
 	USER_UPDATE_FAIL
 } from '../constants/userConstant';
 import { ORDER_LIST_MY_RESET } from '../constants/orderConstant';
+
 import axios from 'axios';
 
 export const login = (email, password) => async (dispatch) => {
@@ -89,7 +90,7 @@ export const getUserDetails = (profile) => async (dispatch, getState) => {
 		const config = {
 			headers: {
 				'Content-Type': 'application/json',
-				Authorization: `Bearer ${userInfo.token}`
+				authorization: `Bearer ${userInfo.token}`
 			}
 		};
 		const { data } = await axios.get(`/api/users/${profile}`, config);
@@ -123,6 +124,11 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
 			type: USER_UPDATE_PROFILE_SUCCESS,
 			payload: data
 		});
+		dispatch({
+			type: USER_LOGIN_SUCCESS,
+			payload: data
+		});
+		localStorage.setItem('userInfo', JSON.stringify(data));
 	} catch (error) {
 		dispatch({
 			type: USER_UPDATE_PROFILE_FAIL,

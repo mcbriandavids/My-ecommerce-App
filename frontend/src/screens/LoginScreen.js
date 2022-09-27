@@ -26,6 +26,7 @@ const LoginScreen = ({ location, history }) => {
 	};
 	return (
 		<FormContainer>
+		
 			<h1>Sign in</h1>
 			{error && <Message variant='danger'>{error}</Message>}
 			{loading && <Loader />}
@@ -34,7 +35,7 @@ const LoginScreen = ({ location, history }) => {
 					<Form.Label>Email Address</Form.Label>
 					<Form.Control
 						type='email'
-						placeholder='Enter Email'
+					placeholder='Enter Email'
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}></Form.Control>
 					<Form.Text className='text-muted'>We'll never share your email with anyone else</Form.Text>
@@ -64,3 +65,5 @@ const LoginScreen = ({ location, history }) => {
 };
 
 export default LoginScreen;
+
+		

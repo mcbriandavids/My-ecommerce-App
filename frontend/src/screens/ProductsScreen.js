@@ -29,13 +29,16 @@ const ProductScreen = ({ match, history }) => {
 			alert('Review Submitted');
 			setRating(0);
 			setComment('');
-			dispatch({ type: PRODUCT_CREATE_REVIEW_RESET });
+			dispatch({ type: PRODUCT_CREATE_REVIEW_RESET }); 
 		}
 		dispatch(listProductsDetails(match.params.id));
 	}, [dispatch, match, history, successProductReview]);
+
+
 	const addToCartHandler = () => {
 		history.push(`/cart/${match.params.id}?qty=${qty}`);
 	};
+
 	const submitHandler = (e) => {
 		e.preventDefault();
 		dispatch(
@@ -52,6 +55,7 @@ const ProductScreen = ({ match, history }) => {
 			</Link>
 			{loading ? (
 				<Loader />
+				
 			) : error ? (
 				<Message variant='danger'>{error}</Message>
 			) : (

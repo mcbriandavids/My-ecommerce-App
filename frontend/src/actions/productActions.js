@@ -88,7 +88,7 @@ export const createProduct = () => async (dispatch, getState) => {
 	try {
 		dispatch({
 			type: PRODUCT_CREATE_REQUEST
-		});
+		});pro
 		const {
 			userLogin: { userInfo }
 		} = getState();
